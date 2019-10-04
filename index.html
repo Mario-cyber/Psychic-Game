@@ -5,33 +5,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Psychic Game</title>
-    <script src="assest/javascript/game.js"></script>
+    <!-- <script src="assest/javascript/game.js"></script> -->
     <link rel="stylesheet" href="assest/css/reset.css">
     <link rel="stylesheet" href="assest/css/style.css">
 </head>
 <body>
 <h1>The Psychic Game</h1>
 <br>
-<h2>Guess what letter I am thinkg of</h2>
+<h2>Guess what letter I am thinking of</h2>
 
 
-<script>
+<script type="text/javascript">
+
+// define your global variables and counters 
+let userLetter = ' '
+let wins = 0
+let loses = 0
+// guesses left (gl)
+let gl = 9
+
+
 //alphabet array obatined from StackOverflow
 let alphabet = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 //randomly generate an index number 
-let randomIndex = Math.floor((Math.random() * 26) + 1);
-// pull a random letter fromt he array using a random index number 
+let randomIndex = Math.floor((Math.random() * alphabet.length));
+// pull a random letter fromt the array using a random index number 
 let randomLetter =  alphabet[randomIndex]
 
 console.log(randomIndex)
 console.log(randomLetter)
 
-// here is where things are getting weird:
+// onekeyup is our listener, we define our function(event-name) as what we want our computer 
+// to do once the key has been pressed  
 
-let userLetter = Event.key ;
-console.log(userLetter)
+ document.onkeyup = function(event){
+   
+    userLetter = event.key;
+     console.log(userLetter)
+    
+    if (userLetter === randomLetter){
+        console.log('correct letter')
+    } else {
+        console.log('Wrong, Sucker !')
+    }
+ }
+
+// for ( i = 0; i < 9 ; i++ ){
+
+//     document.onkeyup = function(event) {
+//      userLetter = event.key;
+//      console.log(userLetter)
+    
+//     if (userLetter === randomLetter){
+//         console.log('Right on!')
+//     } else{
+//         console.log('Wrong Sucker !')
+//     }
+//     }
+// }
+
+
 
 </script>
+
 
 
 
